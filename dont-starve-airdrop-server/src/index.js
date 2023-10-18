@@ -1,8 +1,13 @@
 // create an express app
 
 const express = require("express");
-const app = express();
+const expressWs = require("express-ws");
+
 const port = 9978;
+const app = express();
+expressWs(app);
+
+const airdrop = require("./airdrop");
 
 // log the request
 app.use((req, res, next) => {
@@ -10,15 +15,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// handle the heart beat
-app.get("/heartbeat", (req, res) => {
-  res.json({ message: "ok" });
-});
-
-// handle the airdrop
-app.get("/airdrop", (req, res) => {
-  res.json({ commands: ['c_announce("airdrop")', 'c_spawn("twigs", nil, true)'] });
-});
+app.use('/api', airdrop);
 
 // start the server listening for requests
 app.listen(port, () => console.log(`Server is running on port ${port}!`));

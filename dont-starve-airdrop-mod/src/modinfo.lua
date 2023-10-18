@@ -1,6 +1,6 @@
-
-name = "AirDrop"
-description = "Get a surprise without the sky-high wait! Connect to the DontStarveAirDropServer and watch items magically appear on your screen. No real drops, just instant fun! Note: Requires a connection to the standalone DontStarveAirDropServer for item delivery. Checkout more on https://airdrop-mod.mutoo.im/."
+name = "Airdrop"
+description =
+    "Get a surprise without the sky-high wait! Connect to the DontStarveAirdropServer and watch items magically appear on your screen. No real drops, just instant fun! Note: Requires a connection to the standalone DontStarveAirdropServer for item delivery. Checkout more on https://airdrop-mod.mutoo.im/."
 author = "mutoo"
 version = "0.1.0"
 
@@ -25,3 +25,28 @@ server_filter_tags = {"console_commands", "airdrop"}
 
 icon_atlas = "modicon.xml"
 icon = "modicon.tex"
+
+--Configurations
+configuration_options = {
+    {
+		name = "SERVER_URL",
+		label = "Server address:",
+		options =
+		{
+			{description = "http://localhost:9978", data = "http://localhost:9978"},
+		},
+		default = "http://localhost:9978",
+	},
+    {
+        name = "QUERY_INTERVAL",
+        label = "Airdrop interval (seconds)",
+        options = {
+            {description = "3", data = 3},
+            {description = "5", data = 5},
+            {description = "10 (Default)", data = 10},
+            {description = "15", data = 15},
+            {description = "20", data = 20},
+        },
+        default = 10
+    }
+}
