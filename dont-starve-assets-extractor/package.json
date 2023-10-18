@@ -1,0 +1,13 @@
+{
+  "name": "dont-starve-assets-extractor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "mutoo <gmutoo@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "extract": "node index.js"
+  },
+  "dependencies": {
+    "xml2js": "^0.6.2"
+  }
+}

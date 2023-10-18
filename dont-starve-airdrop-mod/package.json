@@ -1,0 +1,14 @@
+{
+  "name": "dont-starve-airdrop-mod",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "mutoo <gmutoo@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "mod:install": "rsync -avz --delete ./src/ ~/Library/Application\\ Support/Steam/steamapps/common/Don\\'t\\ Starve\\ Together/dontstarve_steam.app/Contents/mods/dont-starve-airdrop-mod/",
+    "mod:watch": "nodemon -e lua --watch ./dont-starve-airdrop-mod --exec \"npm run mod:install\""
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
