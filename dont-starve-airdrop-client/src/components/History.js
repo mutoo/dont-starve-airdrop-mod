@@ -11,7 +11,7 @@ export default observer(function History({ history }) {
     );
   return (
     <div className="flex flex-col gap-y-3">
-      {history.map((item, index) => (
+      {[...history].reverse().map((item, index) => (
         <>
           <HistoryItem item={item} />
         </>

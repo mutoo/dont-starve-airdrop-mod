@@ -3,8 +3,9 @@ import ReloadDialog from "./components/ReloadDialog";
 import useWebsocket from "./hooks/ws";
 import airdropState from "./state";
 import { sendToServer, createPackage, createQueue } from "./utils/data";
-import History from './components/History';
-
+import History from "./components/History";
+import { inventory } from "./config";
+import { getInventoryImage } from "./utils/image";
 
 function App() {
   const [ws, error] = useWebsocket();
@@ -17,27 +18,39 @@ function App() {
     );
   }
 
+  const fav = inventory.categories.filter(
+    (category) => category.type === "favorites"
+  )[0];
+
   return (
     <div className="container max-w-xl mx-auto p-4 text-white space-y-6">
-      <History history={airdropState.history} />
-      <InventoryItem
-        name="log"
-        image={process.env.PUBLIC_URL + "/inventory/log.png"}
-        onClick={() => {
-          sendToServer(
-            ws,
-            createQueue(
-              createPackage(1, [
-                {
-                  type: "item",
-                  name: "log",
-                  count: 1,
-                },
-              ])
-            )
+      <h1 className="mb-2"># Favorites</h1>
+      <div className="flex flex-row flex-wrap gap-1">
+        {fav.items.map((item) => {
+          return (
+            <InventoryItem
+              name={item.name}
+              image={getInventoryImage(item.name)}
+              onClick={() => {
+                sendToServer(
+                  ws,
+                  createQueue(
+                    createPackage(1, [
+                      {
+                        type: "item",
+                        name: item.name,
+                        count: 1,
+                      },
+                    ])
+                  )
+                );
+              }}
+            />
           );
-        }}
-      />
+        })}
+      </div>
+      <h1 className="mb-2"># Airdrop History</h1>
+      <History history={airdropState.history} />
     </div>
   );
 }
