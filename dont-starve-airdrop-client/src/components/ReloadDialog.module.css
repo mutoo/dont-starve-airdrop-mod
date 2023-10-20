@@ -1,0 +1,13 @@
+.reloadDialog {
+    width: 100%;
+
+    background-image: url('../../public/images/board.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.reloadDialog::after {
+    padding-bottom: 50%;
+    display: block;
+    content: '';
+}

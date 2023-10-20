@@ -1,0 +1,46 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-position: center;
+  background-size: cover;
+}
+
+.button:hover .buttonInner {
+  transform: translateY(-1px);
+}
+
+.button:active .buttonInner {
+  transform: translateY(1px);
+}
+
+.longButton {
+  width: 330px;
+  height: 90px;
+
+  background-image: url(../../public/images/long_button_normal.png);
+}
+
+.longButton:hover {
+  background-image: url(../../public/images/long_button_hover.png);
+}
+
+.longButton:active {
+  background-image: url(../../public/images/long_button_pressed.png);
+}
+
+.shortButton {
+  width: 90px;
+  height: 90px;
+
+  background-image: url(../../public/images/button_normal.png);
+}
+
+.shortButton:hover {
+  background-image: url(../../public/images/button_hover.png);
+}
+
+.shortButton:active {
+  background-image: url(../../public/images/button_pressed.png);
+}

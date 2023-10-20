@@ -1,115 +1,43 @@
-import { useEffect, useState } from "react";
+import InventoryItem from "./components/InventoryItem";
+import ReloadDialog from "./components/ReloadDialog";
+import useWebsocket from "./hooks/ws";
+import airdropState from "./state";
+import { sendToServer, createPackage, createQueue } from "./utils/data";
+import History from './components/History';
 
-function Button({ children, onClick }) {
-  return (
-    <button
-      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  );
-}
-
-function Spacer() {
-  return <div className="inline-block p-1" />;
-}
 
 function App() {
-  const [ws, setWs] = useState(null);
-  const [error, setError] = useState(null);
-  useEffect(() => {
-    const ws = new WebSocket("ws://localhost:9978/api/ws");
-    ws.onerror = (evt) => {
-      console.log(evt);
-      setWs(null);
-      setError("Could not connect to server");
-    };
-    ws.onopen = () => {
-      console.log("connected");
-      setWs(ws);
-      setError(null);
-    };
-    ws.onmessage = (evt) => {
-      console.log(evt.data);
-    };
-    ws.onclose = () => {
-      console.log("disconnected");
-      setWs(null);
-    };
-    return () => {
-      ws.close();
-    };
-  }, []);
-  if (error) {
-  }
+  const [ws, error] = useWebsocket();
 
   if (error || !ws) {
     return (
-      <div className="container mx-auto px-4">
-        {error}
-        <button
-          onClick={() => {
-            // reload the page
-            window.location.reload();
-          }}
-        >
-          Reload
-        </button>
+      <div className="container mx-auto p-4">
+        <ReloadDialog message={error} />
       </div>
     );
   }
+
   return (
-    <div className="container mx-auto p-4">
-      <Button
+    <div className="container max-w-xl mx-auto p-4 text-white space-y-6">
+      <History history={airdropState.history} />
+      <InventoryItem
+        name="log"
+        image={process.env.PUBLIC_URL + "/inventory/log.png"}
         onClick={() => {
-          ws.send(
-            JSON.stringify({
-              type: "queue",
-              payload: {
-                type: "item",
-                name: "carrot_cooked",
-                player: 1,
-              },
-            })
+          sendToServer(
+            ws,
+            createQueue(
+              createPackage(1, [
+                {
+                  type: "item",
+                  name: "log",
+                  count: 1,
+                },
+              ])
+            )
           );
         }}
-      >
-        drop item
-      </Button>
-      <Spacer />
-      <Button
-        onClick={() => {
-          ws.send(
-            JSON.stringify({
-              type: "queue",
-              payload: {
-                type: "command",
-                name: "c_maintaintasks('mutoo')",
-                player: 1,
-              },
-            })
-          );
-        }}
-      >
-        maintain health
-      </Button>
-      <Spacer />
-      <Button
-        onClick={() => {
-          ws.send(
-            JSON.stringify({
-              type: "queue",
-              payload: {
-                type: "command",
-                command: "c_maintainhealth('mutoo', 0.5)",
-              },
-            })
-          );
-        }}
-      >
-        cancel maintain task
-      </Button>
+      />
     </div>
   );
 }

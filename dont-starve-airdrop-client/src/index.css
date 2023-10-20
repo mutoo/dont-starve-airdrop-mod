@@ -2,9 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: belisa_plumilla;
+  src: url("../public/fonts/belisa_plumilla-webfont.woff2") format("woff2"),
+    url("../public/fonts/belisa_plumilla-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  background-image: url(../public/bg_spiral.jpg);
+  background-image: url(../public/images/bg_spiral_dark.jpg);
   background-position: center;
   background-size: cover;
   min-height: 100dvh;
+  overscroll-behavior: none;
 }

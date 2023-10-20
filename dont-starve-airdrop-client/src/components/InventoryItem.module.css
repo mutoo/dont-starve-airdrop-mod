@@ -1,0 +1,9 @@
+.inventoryItemButton {
+  background-image: url("../../public/images/bg_item.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.itemCount {
+  text-shadow: 0px 0px 3px black;
+}

@@ -20,7 +20,7 @@ function updatePlayerInfo(players) {
 }
 
 function processSync(ws) {
-  console.log(`[${new Date().toLocaleString()}][sync] ${ws.id}`);
+  console.log(`[${new Date().toLocaleString()}][sync]`);
 
   ws.send(
     JSON.stringify({
@@ -46,26 +46,37 @@ function processQueue(payload) {
   CLIENT_WS.forEach(processSync);
 }
 
-function generateCommands(entry) {
+function generateCommands(package) {
   const commands = [];
-  if (entry.processed) {
+
+  if (package.processed) {
     return commands;
   }
 
-  if (entry.type === "item") {
-    const player = entry.player ? `UserToPlayer(${entry.player})` : "ThePlayer";
-    const angle = (Math.random() * 360) | 0;
-    // the `false` ensure the spawned item is store in debug_entity
-    commands.push(`c_spawn("${entry.name}", nil, false)`);
-    // simulate a drop physic
-    // Launch2(inst, launcher, basespeed, speedmult, startheight, startradius, vertical_speed, force_angle)
-    commands.push(
-      `Launch2(GetDebugEntity(), ${player}, 2, 0, .1, 1, 0, ${angle})`
-    );
-  }
+  const player = package.receiver
+    ? `UserToPlayer(${package.receiver})`
+    : "ThePlayer";
 
-  if (entry.type === "command") {
-    commands.push(entry.command);
+  // TODO: handle drop to everone
+
+  for (const entry of package.entries) {
+    if (entry.type === "item") {
+      const count = entry.count || 1;
+      for (let i = 0; i < count; i++) {
+        const angle = (Math.random() * 360) | 0;
+        // the `false` ensure the spawned item is store in debug_entity
+        commands.push(`c_spawn("${entry.name}", nil, false)`);
+        // simulate a drop physic
+        // Launch2(inst, launcher, basespeed, speedmult, startheight, startradius, vertical_speed, force_angle)
+        commands.push(
+          `Launch2(GetDebugEntity(), ${player}, 2, 0, .1, 1, 0, ${angle})`
+        );
+      }
+    }
+
+    if (entry.type === "command") {
+      commands.push(entry.command);
+    }
   }
 
   return commands;
@@ -82,8 +93,9 @@ airdrop.post("/sync", (req, res) => {
 
   updatePlayerInfo(req.body.players);
 
-  const notProcessed = QUEUE.filter((entry) => !entry.processed);
+  const notProcessed = QUEUE.filter((package) => !package.processed);
   const commands = notProcessed.flatMap(generateCommands);
+
   if (commands.length > 0) {
     commands.push('c_announce("airdrop")');
   }
@@ -124,7 +136,7 @@ airdrop.ws("/ws", (ws, req) => {
   });
 
   // send current state
-  ws.send(JSON.stringify({ players: PLAYERS, queue: QUEUE }));
+  processSync(ws);
 });
 
 module.exports = airdrop;

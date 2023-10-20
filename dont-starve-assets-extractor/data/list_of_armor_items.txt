@@ -1,0 +1,14 @@
+armor_bramble
+armor_dragonfly
+armor_dreadstone
+armor_grass
+armor_lunarplant
+armor_marble
+armor_ruins
+armor_sanity
+armor_snurtleshell
+armor_voidcloth
+armor_wood
+beargervest
+hats
+shieldofterror
