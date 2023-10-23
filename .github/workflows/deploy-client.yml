@@ -1,0 +1,23 @@
+name: deploy-airdrop-client
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: yarn install
+      - name: Build
+        run: yarn build
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4
+        with:
+          branch: gh-pages
+          folder: build
+          clean: true
