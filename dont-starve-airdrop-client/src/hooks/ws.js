@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react";
-import * as mobx from "mobx";
 import airdropState from "../state";
+
+let server = "ws://localhost:9978/api/ws";
+
+// if url has mode="remote"
+const url = new URL(window.location.href);
+if (url.searchParams.get("mode") === "remote") {
+  server = `ws://${url.hostname}:${url.port}/api/ws`;
+}
 
 export default function useWebsocket() {
   const [ws, setWs] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:9978/api/ws");
+    const ws = new WebSocket(server);
     ws.onerror = (evt) => {
       console.log(evt);
       setWs(null);

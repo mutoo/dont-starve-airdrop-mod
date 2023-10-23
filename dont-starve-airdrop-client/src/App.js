@@ -2,7 +2,6 @@ import InventoryItem from "./components/InventoryItem";
 import ReloadDialog from "./components/ReloadDialog";
 import useWebsocket from "./hooks/ws";
 import airdropState from "./state";
-import { sendToServer, createPackage, createQueue } from "./utils/data";
 import Draft from "./components/Draft";
 import History from "./components/History";
 import { inventory } from "./config";
