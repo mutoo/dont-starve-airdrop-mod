@@ -11,15 +11,17 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Change directory
-        run: cd dont-starve-airdrop-client
       - name: Install dependencies
-        run: yarn install
+        run: |
+          cd dont-starve-airdrop-client
+          yarn install
       - name: Build
-        run: yarn build
+        run: |
+          cd dont-starve-airdrop-client
+          yarn build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: build
+          folder: dont-starve-airdrop-client/build
           clean: true
