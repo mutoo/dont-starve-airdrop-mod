@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+permissions:
+  contents: write
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -25,4 +27,3 @@ jobs:
           branch: gh-pages
           folder: dont-starve-airdrop-client/build
           clean: true
-          token: ${{ secrets.GITHUB_TOKEN }}
