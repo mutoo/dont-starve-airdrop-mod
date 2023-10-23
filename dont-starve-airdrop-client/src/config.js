@@ -32,7 +32,13 @@ export const inventory = {
           name: "silk",
         },
         {
+          name: "spidergland",
+        },
+        {
           name: "ash",
+        },
+        {
+          name: "charcoal",
         },
         {
           name: "carrot",
@@ -42,6 +48,9 @@ export const inventory = {
         },
         {
           name: "fireflies",
+        },
+        {
+          name: "lightbulb",
         },
       ],
     },

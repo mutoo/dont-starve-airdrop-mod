@@ -6,15 +6,13 @@ export default observer(function History({ history }) {
   if (history.length === 0)
     return (
       <div>
-        <p>History is empty</p>
+        <span className="text-gray-500">History is empty</span>
       </div>
     );
   return (
     <div className="flex flex-col gap-y-3">
       {[...history].reverse().map((item, index) => (
-        <>
-          <HistoryItem item={item} />
-        </>
+        <HistoryItem key={item.uuid} item={item} />
       ))}
     </div>
   );

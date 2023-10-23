@@ -22,10 +22,7 @@ export default function useWebsocket() {
       console.log(evt.data);
       const data = JSON.parse(evt.data);
       if (data.type === "sync") {
-        mobx.runInAction(() => {
-          airdropState.history.replace(data.payload.queue);
-          airdropState.players.replace(data.payload.players);
-        });
+        airdropState.sync(data.payload);
       }
     };
     ws.onclose = (evt) => {

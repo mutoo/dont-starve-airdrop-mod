@@ -19,3 +19,15 @@ export const createPackage = (receiver, entries) => {
     entries,
   };
 };
+
+export const getPlayer = (players, id) => {
+  let player = null;
+  if (typeof id === "number") {
+    player = players[id - 1];
+  } else if (id === "" && players.length > 0) {
+    player = players[0];
+  } else {
+    player = players.find((p) => p.name === id);
+  }
+  return player || { name: "Player 1", prefab: "mod" };
+};
