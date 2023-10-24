@@ -57,50 +57,163 @@ export const inventory = {
     {
       type: "survival",
       icon: "science",
+      items: [
+        {
+          name: "twigs",
+        },
+        {
+          name: "cutgrass",
+        },
+        {
+          name: "flint",
+        },
+        {
+          name: "rocks",
+        },
+        {
+          name: "nitre",
+        },
+        {
+          name: "ice",
+        },
+        {
+          name: "log",
+        },
+        {
+          name: "ash",
+        },
+        {
+          name: "charcoal",
+        },
+        {
+          name: "gears",
+        },
+        { name: "pigskin" },
+        { name: "poop" },
+        { name: "boneshard" },
+        { name: "houndstooth" },
+        { name: "mosquitosack" },
+      ],
     },
     {
       type: "food",
       icon: "cooking",
+      items: [
+        {
+          name: "carrot",
+        },
+        {
+          name: "honey",
+        },
+        {
+          name: "berries",
+        },
+        {
+          name: "smallmeat",
+        },
+        {
+          name: "meat",
+        },
+        { name: "monstermeat" },
+        { name: "fish" },
+        { name: "seeds" },
+        { name: "acorn" },
+        { name: "perogies" },
+      ],
     },
     {
       type: "light",
       icon: "fire",
+      items: [
+        { name: "torch" },
+        { name: "lantern" },
+        {
+          name: "fireflies",
+        },
+        {
+          name: "lightbulb",
+        },
+      ],
     },
     {
       type: "tools",
       icon: "tool",
+      items: [
+        { name: "axe" },
+        { name: "pickaxe" },
+        { name: "shovel" },
+        { name: "hammer" },
+        { name: "fishingrod" },
+        { name: "bugnet" },
+        { name: "pitchfork" },
+        { name: "trap" },
+        { name: "heatrock" },
+        { name: "compass" },
+        { name: "farm_hoe" },
+        { name: "razor" },
+        { name: "umbrella" },
+      ],
     },
     {
       type: "weapons",
-      icon: "fight",
+      icon: "weapon",
+      items: [
+        { name: "spear" },
+        { name: "tentaclespike" },
+        { name: "batbat" },
+        { name: "boomerang" },
+        { name: "hambat" },
+      ],
     },
     {
       type: "armour",
       icon: "armour",
+      items: [
+        { name: "armorgrass" },
+        { name: "armorwood" },
+        { name: "footballhat" },
+      ],
     },
-    {
-      type: "refine",
-      icon: "refine",
-    },
+    // {
+    //   type: "refine",
+    //   icon: "refine",
+    //   items: [],
+    // },
     {
       type: "magic",
-      icon: "magic",
+      icon: "skull",
+      items: [
+        { name: "nightmarefuel" },
+        {
+          name: "livinglog",
+        },
+        { name: "reviver" },
+      ],
     },
     {
       type: "dress",
-      icon: "dress",
-    },
-    {
-      type: "books",
-      icon: "books",
-    },
-    {
-      type: "treasure",
-      icon: "treasure",
+      icon: "warable",
+      items: [
+        {
+          name: "strawhat",
+        },
+        { name: "tophat" },
+        { name: "winterhat" },
+        { name: "earmuffshat" },
+        { name: "trunkvest_winter" },
+        { name: "minerhat" },
+      ],
     },
     {
       type: "other",
-      icon: "other",
+      icon: "modded",
+      items: [
+        {
+          name: "spidereggsack",
+        },
+        { name: "honeycomb" },
+        { name: "beemine" },
+      ],
     },
   ],
 };

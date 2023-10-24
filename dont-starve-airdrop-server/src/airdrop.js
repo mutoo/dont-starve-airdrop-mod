@@ -54,7 +54,7 @@ function generateCommands(package) {
   }
 
   const player = package.receiver
-    ? `UserToPlayer(${package.receiver})`
+    ? `UserToPlayer("${package.receiver}")`
     : "ThePlayer";
 
   // TODO: handle drop to everone
@@ -64,6 +64,7 @@ function generateCommands(package) {
       const count = entry.count || 1;
       for (let i = 0; i < count; i++) {
         const angle = (Math.random() * 360) | 0;
+        // c_spane(prefab, count, dontselect)
         // the `false` ensure the spawned item is store in debug_entity
         commands.push(`c_spawn("${entry.name}", nil, false)`);
         // simulate a drop physic

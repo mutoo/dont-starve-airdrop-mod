@@ -1,3 +1,5 @@
+import { useState } from "react";
+import classnames from "classnames";
 import InventoryItem from "./components/InventoryItem";
 import ReloadDialog from "./components/ReloadDialog";
 import useWebsocket from "./hooks/ws";
@@ -6,9 +8,11 @@ import Draft from "./components/Draft";
 import History from "./components/History";
 import { inventory } from "./config";
 import { getInventoryImage } from "./utils/image";
+import styles from "./App.module.css";
 
 function App() {
   const [ws, error] = useWebsocket();
+  const [categoryType, setCategoryType] = useState("favorites");
 
   if (error || !ws) {
     return (
@@ -19,14 +23,36 @@ function App() {
   }
 
   const fav = inventory.categories.filter(
-    (category) => category.type === "favorites"
+    (category) => category.type === categoryType
   )[0];
 
   return (
     <div className="container max-w-xl mx-auto p-4 text-white space-y-6">
       <h1 className="mb-2"># Airdrop</h1>
       <Draft ws={ws} />
-      <h1 className="mb-2"># Favorites</h1>
+      <h1 className="mb-2"># Categories</h1>
+      <div className="flex flex-row flex-wrap gap-1">
+        {inventory.categories.map((category) => {
+          return (
+            <button
+              key={category.type}
+              className={classnames(styles.filter, "w-10 h-10")}
+              onClick={() => {
+                setCategoryType(category.type);
+              }}
+            >
+              <img
+                className="w-10 h-10"
+                src={
+                  process.env.PUBLIC_URL + `/images/filter_${category.icon}.png`
+                }
+                alt={category.type}
+              />
+            </button>
+          );
+        })}
+      </div>
+      <h2 className="mb-2">## Filter: {categoryType}</h2>
       <div className="flex flex-row flex-wrap gap-1">
         {fav.items.map((item) => {
           return (

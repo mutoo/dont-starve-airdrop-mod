@@ -20,7 +20,11 @@ export default observer(function Draft({ ws }) {
         <div className="flex flex-row gap-x-2 items-center">
           <span className="">To:</span>
           {airdropState.players.length > 1 && (
-            <button>
+            <button
+              onClick={() => {
+                airdropState.prevPlayer();
+              }}
+            >
               <img
                 className="w-10 h-10 rotate-180"
                 src={process.env.PUBLIC_URL + "/images/page_arrow.png"}
@@ -29,9 +33,12 @@ export default observer(function Draft({ ws }) {
             </button>
           )}
           <Avatar size="small" prefab={player.prefab} />
-          <span className="text-white">{player.name}</span>
           {airdropState.players.length > 1 && (
-            <button>
+            <button
+              onClick={() => {
+                airdropState.nextPlayer();
+              }}
+            >
               <img
                 className="w-10 h-10"
                 src={process.env.PUBLIC_URL + "/images/page_arrow.png"}
@@ -39,11 +46,12 @@ export default observer(function Draft({ ws }) {
               />
             </button>
           )}
+          <span className="text-white">{player.name}</span>
         </div>
         <div className="grid gap-2">
           {!draft.entries.length ? (
             <div className="flex flex-row gap-x-2 items-center">
-              <span className="">Please add inventory item to drop.</span>
+              <span className="">Please add some inventory items to drop.</span>
             </div>
           ) : (
             <div className="flex flex-row flex-wrap gap-1">
