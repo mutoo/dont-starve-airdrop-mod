@@ -5,10 +5,12 @@ local ExecuteConsoleCommand = GLOBAL.ExecuteConsoleCommand
 local ConsoleRemote = GLOBAL.ConsoleRemote
 
 local QUERY_INTERVAL = GetModConfigData("QUERY_INTERVAL") or 10
+local ENABLE_DEBUG = GetModConfigData("ENABLE_DEBUG") or false
 
 function airdrop_sync()
     local players = {}
     for _, v in ipairs(GLOBAL.AllPlayers) do
+        -- collect information of all nearby players
         table.insert(players, {userid = v.userid, name = v.name, prefab = tostring(v.prefab)})
     end
     TheSim:QueryServer(
@@ -22,10 +24,15 @@ function airdrop_sync()
                     end
                 )
                 if status and data then
-                    print("[AIRDROP] INFO", "- number of airdrops arrived:", #data.commands)
+                    if ENABLE_DEBUG then
+                        print("[AIRDROP] INFO", "- number of airdrops arrived:", #data.commands)
+                    end
 
                     for _, command in ipairs(data.commands) do
-                        print("[AIRDROP] INFO", "- cmd: ", command)
+                        if ENABLE_DEBUG then
+                            print("[AIRDROP] INFO", "- cmd: ", command)
+                        end
+
                         if GLOBAL.TheWorld.ismastersim then
                             ExecuteConsoleCommand(command)
                         else

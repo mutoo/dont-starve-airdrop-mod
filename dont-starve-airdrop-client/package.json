@@ -1,6 +1,7 @@
 {
-  "name": "dont-starve-airdrop-server",
+  "name": "dont-starve-airdrop-client",
   "version": "0.1.0",
+  "description": "Don't Starve (Together) Airdrop Client.",
   "author": "mutoo <gmutoo@gmail.com>",
   "license": "MIT",
   "dependencies": {

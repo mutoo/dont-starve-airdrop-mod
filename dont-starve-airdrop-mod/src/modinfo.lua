@@ -33,7 +33,7 @@ configuration_options = {
 		label = "Server address:",
 		options =
 		{
-			{description = "http://localhost:9978", data = "http://localhost:9978"},
+			{description = "localhost:9978", data = "http://localhost:9978"},
 		},
 		default = "http://localhost:9978",
 	},
@@ -48,5 +48,14 @@ configuration_options = {
             {description = "20", data = 20},
         },
         default = 10
+    },
+    {
+        name = "ENABLE_DEBUG",
+        label = "Enable Debug",
+        options = {
+            {description = "No", data = false},
+            {description = "Yes", data = true},
+        },
+        default = false
     }
 }
