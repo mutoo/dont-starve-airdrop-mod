@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.da89cba7.css",
+    "main.js": "/static/js/main.1d3b835f.js",
+    "static/js/787.e8800d45.chunk.js": "/static/js/787.e8800d45.chunk.js",
+    "static/media/board.png": "/static/media/board.ecb0b7ed670ea6d64389.png",
+    "static/media/bg_spiral_dark.jpg": "/static/media/bg_spiral_dark.359651d64275f60f46dc.jpg",
+    "static/media/belisa_plumilla-webfont.woff": "/static/media/belisa_plumilla-webfont.dda13fced2bd7c6a1d41.woff",
+    "static/media/belisa_plumilla-webfont.woff2": "/static/media/belisa_plumilla-webfont.9bd4cfcdc43304f87762.woff2",
+    "static/media/long_button_hover.png": "/static/media/long_button_hover.8c792c0428e39a89c702.png",
+    "static/media/long_button_pressed.png": "/static/media/long_button_pressed.8890874154d4f8992378.png",
+    "static/media/long_button_normal.png": "/static/media/long_button_normal.94af2fb0e77abcd92004.png",
+    "static/media/button_hover.png": "/static/media/button_hover.34ff695b3007c550cae6.png",
+    "index.html": "/index.html",
+    "main.da89cba7.css.map": "/static/css/main.da89cba7.css.map",
+    "main.1d3b835f.js.map": "/static/js/main.1d3b835f.js.map",
+    "787.e8800d45.chunk.js.map": "/static/js/787.e8800d45.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da89cba7.css",
+    "static/js/main.1d3b835f.js"
+  ]
+}
