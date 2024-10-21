@@ -9,8 +9,8 @@ export default observer(function HistoryItem({ item }) {
   const player = getPlayer(airdropState.players, item.receiver);
   const prefab = player?.prefab || "mod";
   return (
-    <div className="flex flex-row gap-x-2 items-start" key={item.uuid}>
-      <div>
+    <div className="flex flex-row items-start" key={item.uuid}>
+      <div className="mt-4 mr-4">
         <Avatar prefab={prefab} />
       </div>
       <div className="flex flex-col gap-y-1">

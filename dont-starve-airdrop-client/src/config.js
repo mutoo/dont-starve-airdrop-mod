@@ -93,6 +93,9 @@ export const inventory = {
         { name: "boneshard" },
         { name: "houndstooth" },
         { name: "mosquitosack" },
+        { name: "manrabbit_tail" },
+        { name: "beefalowool" },
+        { name: "horn" },
       ],
     },
     {
@@ -119,6 +122,7 @@ export const inventory = {
         { name: "seeds" },
         { name: "acorn" },
         { name: "perogies" },
+        { name: "taffy" },
       ],
     },
     {
@@ -163,6 +167,7 @@ export const inventory = {
         { name: "batbat" },
         { name: "boomerang" },
         { name: "hambat" },
+        { name: "ruins_bat" },
       ],
     },
     {
@@ -172,6 +177,8 @@ export const inventory = {
         { name: "armorgrass" },
         { name: "armorwood" },
         { name: "footballhat" },
+        { name: "armorruins" },
+        { name: "ruinshat" },
       ],
     },
     // {
@@ -188,6 +195,8 @@ export const inventory = {
           name: "livinglog",
         },
         { name: "reviver" },
+        { name: "beardhair" },
+        { name: "lifeinjector" },
       ],
     },
     {
@@ -213,6 +222,7 @@ export const inventory = {
         },
         { name: "honeycomb" },
         { name: "beemine" },
+        { name: "trap_teeth" },
       ],
     },
   ],

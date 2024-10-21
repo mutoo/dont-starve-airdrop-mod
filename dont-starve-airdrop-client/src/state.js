@@ -13,6 +13,9 @@ export function createAirdropState() {
     sync(payload) {
       this.players.replace(payload.players);
       this.history.replace(payload.queue);
+      if (this.players.length > 0 && this.draft.receiver === "") {
+        this.draft.receiver = this.players[0].name;
+      }
     },
     setReceiver(receiver) {
       this.draft.receiver = receiver;
@@ -39,37 +42,24 @@ export function createAirdropState() {
       }
     },
     prevPlayer() {
-      if (this.players.length === 0) {
-        this.draft.receiver = "";
-        return;
-      }
-      if (this.players.length === 1) {
-        this.draft.receiver = this.players[0].name;
-        return;
-      }
       const index = this.players.findIndex(
         (player) => player.name === this.draft.receiver
       );
-      const prevIndex = (index - 1 + this.players.length) % this.players.length;
+      const prevIndex =
+        index === -1
+          ? 0
+          : (index - 1 + this.players.length) % this.players.length;
       this.draft.receiver = this.players[prevIndex].name;
     },
     nextPlayer() {
-      if (this.players.length === 0) {
-        this.draft.receiver = "";
-        return;
-      }
-      if (this.players.length === 1) {
-        this.draft.receiver = this.players[0].name;
-        return;
-      }
       const index = this.players.findIndex(
         (player) => player.name === this.draft.receiver
       );
-      const nextIndex = (index + 1) % this.players.length;
+      const nextIndex = index === -1 ? 0 : (index + 1) % this.players.length;
       this.draft.receiver = this.players[nextIndex].name;
     },
     resetDraft() {
-      this.draft.receiver = "";
+      this.draft.receiver = this.players[0]?.name || "";
       this.draft.entries.clear();
     },
   });

@@ -14,6 +14,7 @@ body {
   background-image: url(../public/images/bg_spiral_dark.jpg);
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
   min-height: 100dvh;
   overscroll-behavior: none;
 }

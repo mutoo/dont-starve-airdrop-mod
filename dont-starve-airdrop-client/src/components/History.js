@@ -10,7 +10,7 @@ export default observer(function History({ history }) {
       </div>
     );
   return (
-    <div className="flex flex-col gap-y-3">
+    <div className="flex flex-col gap-y-8">
       {[...history].reverse().map((item, index) => (
         <HistoryItem key={item.uuid} item={item} />
       ))}

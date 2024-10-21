@@ -27,7 +27,7 @@ function App() {
   )[0];
 
   return (
-    <div className="container max-w-xl mx-auto p-4 text-white space-y-6">
+    <div className="container max-w-xl mx-auto p-4 mb-20 text-white space-y-6">
       <h1 className="mb-2"># Airdrop</h1>
       <Draft ws={ws} />
       <h1 className="mb-2"># Categories</h1>
@@ -69,6 +69,10 @@ function App() {
       </div>
       <h1 className="mb-2"># Airdrop History</h1>
       <History history={airdropState.history} />
+      <hr className="border-gray-500 max-w-xs" />
+      <div className="text-gray-500">
+        Disclaimer: All game-related images and trademarks are property of klei.
+      </div>
     </div>
   );
 }
