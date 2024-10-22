@@ -9,6 +9,7 @@ import History from "./components/History";
 import { inventory } from "./config";
 import { getInventoryImage } from "./utils/image";
 import styles from "./App.module.css";
+import BuyMeCoffee from "./components/BuyMeCoffee";
 
 function App() {
   const [ws, error] = useWebsocket();
@@ -52,7 +53,7 @@ function App() {
           );
         })}
       </div>
-      <h2 className="mb-2">## Filter: {categoryType}</h2>
+      <h2 className="mb-2">## {categoryType}</h2>
       <div className="flex flex-row flex-wrap gap-1">
         {fav.items.map((item) => {
           return (
@@ -67,12 +68,16 @@ function App() {
           );
         })}
       </div>
+      <div className="text-gray-500">
+        Tip: hold "shift" key to add 5x items on each click.
+      </div>
       <h1 className="mb-2"># Airdrop History</h1>
       <History history={airdropState.history} />
       <hr className="border-gray-500 max-w-xs" />
       <div className="text-gray-500">
         Disclaimer: All game-related images and trademarks are property of klei.
       </div>
+      <BuyMeCoffee />
     </div>
   );
 }

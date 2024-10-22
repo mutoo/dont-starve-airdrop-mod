@@ -54,10 +54,10 @@ function generateCommands(package) {
   }
 
   const player = package.receiver
-    ? `UserToPlayer("${package.receiver}")`
+    ? // when a player is not in range of host, it may return nil,
+      // in this case we just fallback to the host.
+      `UserToPlayer("${package.receiver}") or ThePlayer`
     : "ThePlayer";
-
-  // TODO: handle drop to everone
 
   for (const entry of package.entries) {
     if (entry.type === "item") {
