@@ -1,6 +1,6 @@
 name = "Airdrop"
 description =
-    "Get a surprise without the sky-high wait! Connect to the DontStarveAirdropServer and watch items magically appear on your screen. No real drops, just instant fun! Note: Requires a connection to the standalone DontStarveAirdropServer for item delivery. Checkout more on https://airdrop-mod.mutoo.im/."
+    "Get a surprise without the sky-high wait! Connect to the DontStarveAirdropServer and watch items magically appear on your screen. No real drops, just instant fun! Note: Requires a connection to the standalone DontStarveAirdropServer for item delivery. Checkout more on https://github.com/mutoo/dont-starve-airdrop-mod"
 author = "mutoo"
 version = "0.1.0"
 
@@ -33,7 +33,7 @@ configuration_options = {
 		label = "Server address:",
 		options =
 		{
-			{description = "http://localhost:9978", data = "http://localhost:9978"},
+			{description = "localhost:9978", data = "http://localhost:9978"},
 		},
 		default = "http://localhost:9978",
 	},
@@ -48,5 +48,14 @@ configuration_options = {
             {description = "20", data = 20},
         },
         default = 10
+    },
+    {
+        name = "ENABLE_DEBUG",
+        label = "Enable Debug",
+        options = {
+            {description = "No", data = false},
+            {description = "Yes", data = true},
+        },
+        default = false
     }
 }

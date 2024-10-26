@@ -5,7 +5,7 @@
   "author": "mutoo <gmutoo@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "mod:install": "rsync -avz --delete ./src/ ~/Library/Application\\ Support/Steam/steamapps/common/Don\\'t\\ Starve\\ Together/dontstarve_steam.app/Contents/mods/dont-starve-airdrop-mod/",
+    "mod:install": "node tools/install",
     "mod:watch": "nodemon -e lua --watch ./src --exec \"npm run mod:install\""
   },
   "devDependencies": {
