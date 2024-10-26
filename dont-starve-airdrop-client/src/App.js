@@ -6,7 +6,7 @@ import useWebsocket from "./hooks/ws";
 import airdropState from "./state";
 import Draft from "./components/Draft";
 import History from "./components/History";
-import { inventory } from "./config";
+import config from "./config.yml";
 import { getInventoryImage } from "./utils/image";
 import styles from "./App.module.css";
 import BuyMeCoffee from "./components/BuyMeCoffee";
@@ -23,7 +23,7 @@ function App() {
     );
   }
 
-  const fav = inventory.categories.filter(
+  const fav = config.inventory.categories.filter(
     (category) => category.type === categoryType
   )[0];
 
@@ -33,7 +33,7 @@ function App() {
       <Draft ws={ws} />
       <h1 className="mb-2"># Categories</h1>
       <div className="flex flex-row flex-wrap gap-1">
-        {inventory.categories.map((category) => {
+        {config.inventory.categories.map((category) => {
           return (
             <button
               key={category.type}
