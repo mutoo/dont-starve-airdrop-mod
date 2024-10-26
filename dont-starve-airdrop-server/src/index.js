@@ -28,4 +28,4 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // start the server listening for requests
-app.listen(port, () => console.log(`Airdrop Server is running on port ${port}! Please launch your game with airdrop-mod enabled now, and start from https://airdrop-mod.mutoo.im to airdrop your suppliment!`));
+app.listen(port, () => console.log(`The Airdrop Server is now active on port ${port}! Please launch your game with the airdrop-mod enabled, and begin your airdrop journey at https://airdrop-mod.mutoo.im to distribute your supplies!`));

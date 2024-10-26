@@ -52,8 +52,7 @@ export default observer(function Draft({ ws }) {
           {!draft.entries.length ? (
             <div className="flex flex-row gap-x-2 items-center">
               <span className="">
-                Please add some inventory items from the listing, and the click
-                the button on the right to airdrop.
+              Please select some inventory items from the list, and then click the button on the right to initiate the airdrop.
               </span>
             </div>
           ) : (

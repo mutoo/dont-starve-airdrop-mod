@@ -1,6 +1,6 @@
 name = "Airdrop"
 description =
-    "Get a surprise without the sky-high wait! Connect to the DontStarveAirdropServer and watch items magically appear on your screen. No real drops, just instant fun! Note: Requires a connection to the standalone DontStarveAirdropServer for item delivery. Checkout more on https://airdrop-mod.mutoo.im/."
+    "Get a surprise without the sky-high wait! Connect to the DontStarveAirdropServer and watch items magically appear on your screen. No real drops, just instant fun! Note: Requires a connection to the standalone DontStarveAirdropServer for item delivery. Checkout more on https://github.com/mutoo/dont-starve-airdrop-mod"
 author = "mutoo"
 version = "0.1.0"
 

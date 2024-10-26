@@ -69,7 +69,7 @@ function App() {
         })}
       </div>
       <div className="text-gray-500">
-        Tip: hold "shift" key to add 5x items on each click.
+        Tip: Press and hold the "Shift" key to add five items with each click.
       </div>
       <h1 className="mb-2"># Airdrop History</h1>
       <History history={airdropState.history} />
