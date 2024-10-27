@@ -62,6 +62,7 @@ function generateCommands(package) {
   for (const entry of package.entries) {
     if (entry.type === "item") {
       const count = entry.count || 1;
+      // TODO: to drop item in a stack
       for (let i = 0; i < count; i++) {
         const angle = (Math.random() * 360) | 0;
         // c_spane(prefab, count, dontselect)
